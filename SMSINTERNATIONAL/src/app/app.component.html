@@ -1,112 +1,29 @@
-<div class="row justify-content-center align-items-center" style="height:100% ; width:100%">
-    <div class="col-md-6 col-lg-4"
-        style="border: solid 5px ; border-radius: 50px; padding:20px ; border-right-color: blue; border-left-color: pink;">
-
-        <div class="row justify-content-center align-items-center">
-            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTS3YRPik96l9hULt4nBJiC9MzALanrYd2zTmlnW6kZXoFXMXXW"
-                alt="Image" style="max-width: 100%; height: auto;">
-        </div>
-        <div class="row justify-content-center">
-            <h1 class="navbar-text" style="color:black; font-size:xx-large;">
-                LOGIN</h1>
-        </div>
-        <br>
-        <br>
-
-        <div style="border: solid 2px; border-radius: 2px; color: green; display: flex; align-items: center;">
-            <i class="glyphicon glyphicon-user" style="font-size:20px;color:green ; padding-left: 10px;"></i>
-
-            <input style="font-size: x-large; border: none; outline: none; flex-grow: 1; padding-left: 20px;"
-                type="search" placeholder="User Name">
-        </div>
-        <br>
-        <br>
-
-        <div style="border: solid 2px; border-radius: 2px; color: green; display: flex; align-items: center;">
-            <i class="glyphicon glyphicon-eye-open" style="font-size:20px;color:green ; padding-left: 10px;"></i>
-
-            <input style="font-size: x-large; border: none; outline: none; flex-grow: 1; padding-left: 20px;"
-                type="search" placeholder="Password">
-        </div>
-        <br><br>
-        <div style="text-align: right; font-size: xx-large; border-bottom: 1px solid green;">
-            <a href=""> Forgetpassword </a>
-        </div>
-        <br>
-        <div class="row justify-content-center align-items-center">
-            <button type="button" class="btn btn-outline-success btn-lg"
-                style="padding-left:50px; padding-right: 50px; font-size: 25px;">Login</button>
-        </div>
-        <br>
-
-        <!-- MODEL -->
-        <div class="row justify-content-center align-items-center">
-            <button type="button" class="btn btn-outline-success btn-lg"
-                style="padding-left: 30px; padding-right: 20px; font-size: 20px; " data-toggle="modal"
-                data-target="#myModal">SignUp</button>
-            <div class=" modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content " style="width:100%;height:100%">
-                        <div class="form-group">
-                            <!-- <i style="font-size:24px" class="fa">&#xf007;</i> -->
-                            <input type="text" id="first-name" class="form-control" placeholder="First name">
-                        </div>
-                        <div class="form-group">
-                            <!-- <i style="font-size:24px" class="fa">&#xf007;</i> -->
-                            <input type="text" id="last-name" class="form-control" placeholder="Last name">
-                        </div>
-                        <div class="form-group">
-                            <!-- <i style="font-size:24px" class="fa">&#xf007;</i> -->
-                            <input type="text" id="username" class="form-control" placeholder="Username" required>
-                        </div>
-                        <div class="form-group">
-                            <!-- <i style="font-size:24px" class="fa">&#xf007;</i> -->
-                            <input type="email" id="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <!-- <label for="phone">Phone</label> -->
-                            <input type="numbers" id="phone" class="form-control" placeholder="Enter mobile number"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <!-- <label for="otp">OTP</label> -->
-                            <input type="text" id="otp" class="form-control" placeholder="Enter OTP" required>
-                            <br>
-                            <br>
-                            <button type="button" id="get-otp" class="btn btn-primary">GET OTP</button>
-                        </div>
-                        <div class="form-group">
-                            <label for="captcha">Captcha Code</label>
-                            <input type="text" id="captcha" class="form-control" placeholder="Enter captcha code"
-                                required>
-                            <input type="hidden" id="generatedCaptcha" value="">
-
-                            <!-- Button to generate a new CAPTCHA code -->
-                            <button type="button" onclick="generateCaptcha()" class="btn btn-secondary">Generate
-                                CAPTCHA</button>
-
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" id="terms">
-                            <label for="terms">I agree to the T&C and Privacy Policy and I am giving my consent to
-                                receive
-                                updates
-                                through SMS/email</label>
-                        </div>
-                        <div>
-                            <button type="button" id="get-otp" class="btn btn-primary">SUBMIT</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="row justify-content-center align-items-center">
-                <img src="https://i.pinimg.com/564x/0e/b8/07/0eb8078198b32ac9d48f60dc38d16bc3.jpg" height="50"
-                    width="50">
-                <img src="https://www.techjunkie.com/wp-content/uploads/2015/03/apple-logo-black2-1.jpg" height="100"
-                    width="100">
-            </div>
-        </div>
+<div class="login-container">
+    <div class="login-form">
+      <form style="background: url(assets/imglogo.jpeg);" method="post" action="your_action"></form>
+      <div class="logo">
+        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTS3YRPik96l9hULt4nBJiC9MzALanrYd2zTmlnW6kZXoFXMXXW" alt="Logo"><br>
+        <span>LOGIN</span>
+      </div>
+      <div class="form-group">
+        <label for="username" class="username">User Name</label>
+        <input type="text" id="username" class="form-control form-control-sm" placeholder="E.g. s sourav"><i class=""></i>
+      </div>
+      <div class="form-group">
+        <label for="password" class="password">Password</label>
+        <input type="password" id="password" class="form-control form-control-sm" placeholder="E.g. sourav123">
+      </div>
+      <div class="forgot-password">
+        <a href="#" id="anchor">Forgot Password</a>
+      </div>
+      
+      <button class="login-button btn btn-success btn-sm" >LOGIN</button><br><br>
+      <button class="signup-button btn btn-primary btn-sm">Sign Up</button>
+      <div class="alternative-login">
+        <button class="google-button"><img src="assets/google-icon.png" alt="Google"></button>
+        <button class="apple-button"><img src="assets/apple-icon.png" alt="Apple"></button>
+      </div>
     </div>
-</div>
+  
+  
+  
