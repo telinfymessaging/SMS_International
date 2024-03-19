@@ -1,6 +1,6 @@
 export interface ILogin {
     uname: string
-    pwd: number
+    pwd: string
 }
 export interface ILoginResponce {
     message: string
