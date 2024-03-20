@@ -3,8 +3,12 @@ export interface ILogin {
     pwd: string
 }
 export interface ILoginResponce {
-    message: string
-    UID: number
-    UNAME: string
-    token: string
+    status: number,
+    data: {
+        message: string
+        UID: number
+        UNAME: string
+        token: string
+    },
+    error: string
 }
