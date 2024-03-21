@@ -1,0 +1,99 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: whitesmoke;
+  box-shadow: #4caf50;
+}
+
+.username {
+  float: left;
+}
+
+.forgot-password {
+  margin-left: 165px;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  font-size: 15px;
+  color: #4caf50;
+}
+
+#anchor {
+  color: #4caf50;
+}
+
+.password {
+  float: left;
+}
+
+.login-form {
+  background-color: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  padding: 35px;
+  text-align: center;
+}
+
+.logo img {
+  width: 90px;
+  height: 90px;
+}
+
+.logo span {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+}
+
+/* .form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+} */
+
+.forgot-password a {
+  color: #777;
+  text-decoration: none;
+}
+
+/* .login-button {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  padding: 2px 60px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+} */
+
+.alternative-login {
+  margin-top: 20px;
+}
+
+
+.google-button,
+.apple-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.google-button img,
+.apple-button img {
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+}
