@@ -1,31 +1,16 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-<<<<<<< Updated upstream
-
-//intall 'npm install crypto-js' to  use cryptojs
-import * as CryptoJS from 'crypto-js';
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule, ReactiveFormsModule],
-<<<<<<< Updated upstream
-=======
-  imports: [RouterOutlet, ReactiveFormsModule, FormsModule, CommonModule],
->>>>>>> Stashed changes
-=======
 import * as CryptoJS from 'crypto-js';
 import { ApiServiceService } from './Services/api-service.service';
 import { ILogin, ILoginResponce } from './Interfaces/Ilogin';
 import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,ReactiveFormsModule, CommonModule, FormsModule,HttpClientModule ],
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [ApiServiceService]
@@ -33,12 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppComponent {
   title = 'smsInternational';
   islogedin:boolean=false;
-<<<<<<< Updated upstream
+
   constructor(private fb: FormBuilder, private service:ApiServiceService) { }
-=======
-  constructor(private fb: FormBuilder, private service:apiservic) { }
->>>>>>> Stashed changes
- 
   signup = this.fb.group({
     UID: ['', Validators.required],
     UNAME: ['', Validators.required],
@@ -51,20 +32,6 @@ export class AppComponent {
   // Submit() {
   //   console.log(this.form.value);
   // }
-  login() {
-    // Encrypt (hash) the password
-    // Hash the password
-    const hashedPwd = CryptoJS.MD5(String(this.form.value.pwd)).toString();
-    // You might want to create a new object if you need the username unaltered
-    const formData :ILogin= {
-      uname: String(this.form.value.uname),
-      pwd: hashedPwd
-    };
-    console.log(formData);
-    this.service.login(formData).subscribe((res:ILoginResponce)=>{
-      console.log(res);
-      });
-  }
   
   login() {
     // Encrypt (hash) the password
@@ -73,13 +40,31 @@ export class AppComponent {
     const hashedPwd = CryptoJS.MD5(String(this.form.value.pwd)).toString();
     // You might want to create a new object if you need the username unaltered
     const formData = {
-      uname: this.form.value.uname,
+      uname: String(this.form.value.uname),
       pwd: hashedPwd
     };
     console.log(formData);
 
+    this.service.login(formData).subscribe({
+      next: (data: ILoginResponce) =>{
+        console.log(data);
+        if(data.status == 200){
+          console.log(data.data.token);
+          
+          localStorage.setItem("token", `${data.data.token}`);
+  
+        }
+      },
+      error: (error)=>{
+        console.log(error.error);
+        if(error.error.status === 400){
+          alert(JSON.stringify(error.error.error));
+        }
+        
+      }
+     
     // Use formData for further processing, like sending it to your server
-
+    })
   }
 
 }
