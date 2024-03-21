@@ -1,10 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-<<<<<<< Updated upstream
 import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-=======
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
->>>>>>> Stashed changes
 import { RouterOutlet } from '@angular/router';
 <<<<<<< Updated upstream
 
@@ -13,8 +9,8 @@ import * as CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-root',
   standalone: true,
-<<<<<<< Updated upstream
   imports: [RouterOutlet, CommonModule, FormsModule, ReactiveFormsModule],
+<<<<<<< Updated upstream
 =======
   imports: [RouterOutlet, ReactiveFormsModule, FormsModule, CommonModule],
 >>>>>>> Stashed changes
@@ -28,15 +24,20 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [RouterOutlet,ReactiveFormsModule, CommonModule, FormsModule,HttpClientModule ],
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [ApiServiceService]
 })
 export class AppComponent {
-<<<<<<< Updated upstream
   title = 'smsInternational';
   islogedin:boolean=false;
+<<<<<<< Updated upstream
   constructor(private fb: FormBuilder, private service:ApiServiceService) { }
+=======
+  constructor(private fb: FormBuilder, private service:apiservic) { }
+>>>>>>> Stashed changes
  
   signup = this.fb.group({
     UID: ['', Validators.required],
@@ -64,13 +65,7 @@ export class AppComponent {
       console.log(res);
       });
   }
-=======
-  islogedin: boolean = false;
-  form = this.fb.group({
-    uname: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._-]{3,20}$')]],
-    pwd: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$')]]
-  });
-  constructor(private fb: FormBuilder) { }
+  
   login() {
     // Encrypt (hash) the password
 
@@ -82,9 +77,9 @@ export class AppComponent {
       pwd: hashedPwd
     };
     console.log(formData);
+
     // Use formData for further processing, like sending it to your server
 
   }
 
->>>>>>> Stashed changes
 }
