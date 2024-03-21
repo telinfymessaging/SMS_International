@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +16,16 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css',
   providers: [ApiServiceService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'smsInternational';
   islogedin: boolean = false;
   issignedup: boolean = false;
   constructor(private fb: FormBuilder, private service: ApiServiceService, private comp: Router) { }
+  ngOnInit(): void {
+    let lgn=!!localStorage.getItem('tkn')
+    console.log(lgn);
+    this.islogedin = lgn;
+  }
   signup = this.fb.group({
     uname: ['', Validators.required],
     email: ['', [Validators.required , Validators.email,Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]],
@@ -48,7 +53,7 @@ export class AppComponent {
         console.log(idata);
         if (idata.status === 200) {
           // console.log(idata.data.token);
-          localStorage.setItem("token", `${idata.data.token}`);
+          localStorage.setItem("tkn", `${idata.data.token}`);
           localStorage.setItem("user", `${idata.data.UNAME}`);
           localStorage.setItem('islogedin', 'true')
           this.islogedin = true;
