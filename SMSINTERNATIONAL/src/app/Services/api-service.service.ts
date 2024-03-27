@@ -4,20 +4,21 @@ import { ILogin, ILoginResponce } from '../Interfaces/Ilogin';
 import { HttpClient } from '@angular/common/http';
 import { IComposeResponse } from '../Interfaces/IComposeResponse';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
 
-  BaseURL: string = 'http://192.168.29.40:3000/'
+  apiendpoint: string = 'http://192.168.29.40:3000/'
 
   constructor(private objhttp: HttpClient) { }
 
-  login(LoginDetails: ILogin): Observable<ILoginResponce> {
-    return this.objhttp.post<ILoginResponce>(`${this.BaseURL}login`, LoginDetails)
+  postFunctionc<T,U>(url:string,data:U){
+    return this.objhttp.post<T>(this.apiendpoint+url,data)
   }
-  get_compose_details():Observable<IComposeResponse>{
-    return this.objhttp.get<IComposeResponse>(`${this.BaseURL}getcompose`);
+  getFunction<T>(url:string){
+    return this.objhttp.get<T>(this.apiendpoint+url)
+  }
   
-  }
 }
