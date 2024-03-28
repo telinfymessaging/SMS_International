@@ -20,5 +20,4 @@ export class ApiServiceService {
   getFunction<T>(url:string){
     return this.objhttp.get<T>(this.apiendpoint+url)
   }
-  
 }
